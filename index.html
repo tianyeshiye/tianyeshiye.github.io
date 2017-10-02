@@ -264,7 +264,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="混沌"><a href="#混沌" class="headerlink" title="混沌"></a>混沌</h2><h1 id="HBase架构及基本组件"><a href="#HBase架构及基本组件" class="headerlink" title="HBase架构及基本组件"></a>HBase架构及基本组件</h1><p>HBase采用Master/Slave架构搭建集群，<br>它隶属于Hadoop生态系统，<br>由一下类型节点组成：HMaster节点、HRegionServer节点、ZooKeeper集群，<br>而在底层，它将数据存储于HDFS中，<br>因而涉及到HDFS的NameNode、DataNode等，总体结构如下：  </p>
-<p><img src="/images/hbase/hbase1.jpg" alt=""></p>
+<p><img src="/images/hbase/HBase1.jpg" alt=""></p>
 <p><strong>Hbase基本概念</strong>  </p>
 <ul>
 <li>RowKey：是Byte array，是表中每条记录的“主键”，方便快速查找，Rowkey的设计非常重要。  </li>
@@ -281,7 +281,7 @@
 <li>Region是Hbase中分布式存储和负载均衡的最小单元，不同Region分布到不同RegionServer上。  </li>
 <li><strong>Region虽然是分布式存储的最小单元，但并不是存储的最小单元。Region由一个或者多个Store组成，每个store保存一个columns family；每个Strore又由一个memStore和0至多个StoreFile组成，StoreFile包含HFile；memStore存储在内存中，StoreFile存储在HDFS上。</strong>  </li>
 </ul>
-<p><img src="/images/hbase/hbase2.jpg" alt=""><br><img src="/images/hbase/hbase3.jpg" alt=""></p>
+<p><img src="/images/hbase/HBase2.jpg" alt=""><br><img src="/images/hbase/HBase3.jpg" alt=""></p>
 <p><strong>Client</strong>  </p>
 <ul>
 <li>包含访问HBase的接口，并维护cache来加快对HBase的访问，比如region的位置信息</li>
