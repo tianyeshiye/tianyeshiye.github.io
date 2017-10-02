@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | 天道</title>
+  <title>1 Hbase原理、基本概念、基本架构 | 天道</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="天道">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="混沌HBase架构及基本组件HBase采用Master/Slave架构搭建集群，它隶属于Hadoop生态系统，由一下类型节点组成：HMaster节点、HRegionServer节点、ZooKeeper集群，而在底层，它将数据存储于HDFS中，因而涉及到HDFS的NameNode、DataNode等，总体结构如下：    Hbase基本概念    RowKey：是Byte array，是表中每条记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1 Hbase原理、基本概念、基本架构">
+<meta property="og:url" content="http://yoursite.com/2017/10/02/1 Hbase原理、基本概念、基本架构/index.html">
 <meta property="og:site_name" content="天道">
+<meta property="og:description" content="混沌HBase架构及基本组件HBase采用Master/Slave架构搭建集群，它隶属于Hadoop生态系统，由一下类型节点组成：HMaster节点、HRegionServer节点、ZooKeeper集群，而在底层，它将数据存储于HDFS中，因而涉及到HDFS的NameNode、DataNode等，总体结构如下：    Hbase基本概念    RowKey：是Byte array，是表中每条记录">
+<meta property="og:image" content="http://yoursite.com/images/hbase/hbase1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/hbase/hbase2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/hbase/hbase3.jpg">
+<meta property="og:updated_time" content="2017-10-02T15:42:54.048Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="天道">
+<meta name="twitter:title" content="1 Hbase原理、基本概念、基本架构">
+<meta name="twitter:description" content="混沌HBase架构及基本组件HBase采用Master/Slave架构搭建集群，它隶属于Hadoop生态系统，由一下类型节点组成：HMaster节点、HRegionServer节点、ZooKeeper集群，而在底层，它将数据存储于HDFS中，因而涉及到HDFS的NameNode、DataNode等，总体结构如下：    Hbase基本概念    RowKey：是Byte array，是表中每条记录">
+<meta name="twitter:image" content="http://yoursite.com/images/hbase/hbase1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="天道" type="application/atom+xml">
   
@@ -52,9 +60,9 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="../../index.html">主页</a></li>
+				<li><a href="../../../../index.html">主页</a></li>
 	        
-				<li><a href="../../tags/随笔/">随笔</a></li>
+				<li><a href="../../../../tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -78,7 +86,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/tianyeshiye" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weixin" target="_blank" href="../../tianyeshiye" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="weixin" target="_blank" href="../../../../tianyeshiye" title="weixin"><i class="icon-weixin"></i></a>
 		        
 					<a class="mail" target="_blank" href="mailto:tianyeshiye@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -117,7 +125,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/tianyeshiye" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weixin" target="_blank" href="../../tianyeshiye" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="weixin" target="_blank" href="../../../../tianyeshiye" title="weixin"><i class="icon-weixin"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:tianyeshiye@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -128,9 +136,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="../../index.html">主页</a></li>
+					<li style="width: 50%"><a href="../../../../index.html">主页</a></li>
 		        
-					<li style="width: 50%"><a href="../../tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="../../../../tags/随笔/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -145,211 +153,224 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-1 Hbase原理、基本概念、基本架构" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2017/10/02/hadoop + hbase架构和源码分析/" class="archive-article-date">
-  	<time datetime="2017-10-02T14:49:51.056Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2017/10/02/hadoop + hbase架构和源码分析/">hadoop + hbase架构和源码分析</a>
+    <h1 class="article-title" itemprop="name">
+      1 Hbase原理、基本概念、基本架构
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2017/10/02/1 Hbase原理、基本概念、基本架构/" class="archive-article-date">
+        
+        <a href="" class="archive-article-date">
   	<time datetime="2017-10-02T14:13:02.001Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-02</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2017/10/02/1 Hbase原理、基本概念、基本架构/">1 Hbase原理、基本概念、基本架构</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="混沌"><a href="#混沌" class="headerlink" title="混沌"></a>混沌</h2><h1 id="HBase架构及基本组件"><a href="#HBase架构及基本组件" class="headerlink" title="HBase架构及基本组件"></a>HBase架构及基本组件</h1><p>HBase采用Master/Slave架构搭建集群，<br>它隶属于Hadoop生态系统，<br>由一下类型节点组成：HMaster节点、HRegionServer节点、ZooKeeper集群，<br>而在底层，它将数据存储于HDFS中，<br>因而涉及到HDFS的NameNode、DataNode等，总体结构如下：  </p>
+<p><img src="/images/hbase/hbase1.jpg" alt=""></p>
+<p><strong>Hbase基本概念</strong>  </p>
+<ul>
+<li>RowKey：是Byte array，是表中每条记录的“主键”，方便快速查找，Rowkey的设计非常重要。  </li>
+<li>Column Family：列族，拥有一个名称(string)，包含一个或者多个相关列  </li>
+<li>Column：属于某一个columnfamily、familyName:columnName，每条记录可动态添加  </li>
+<li>Version Number：类型为Long，默认值是系统时间戳，可由用户自定义  </li>
+<li>Value(Cell)：Byte array  </li>
+</ul>
+<p><strong>Hbase物理模型</strong><br>每个column family存储在HDFS上的一个单独文件中，空值不会被保存。<br>Key 和 Version number在每个 column family中均有一份；<br>HBase 为每个值维护了多级索引，即：<key, column="" family,="" name,="" timestamp=""><br>物理存储:  </key,></p>
+<ul>
+<li>Table中所有行都按照row key的字典序排列；  </li>
+<li>Table在行的方向上分割为多个Region；  </li>
+<li>Region按大小分割的，每个表开始只有一个region，随着数据增多，region不断增大，当增大到一个阀值的时候，region就会等分会两个新的region，之后会有越来越多的region；  </li>
+<li>Region是Hbase中分布式存储和负载均衡的最小单元，不同Region分布到不同RegionServer上。  </li>
+<li><strong>Region虽然是分布式存储的最小单元，但并不是存储的最小单元。Region由一个或者多个Store组成，每个store保存一个columns family；每个Strore又由一个memStore和0至多个StoreFile组成，StoreFile包含HFile；memStore存储在内存中，StoreFile存储在HDFS上。</strong>  </li>
+</ul>
+<p><img src="/images/hbase/hbase2.jpg" alt=""><br><img src="/images/hbase/hbase3.jpg" alt=""></p>
+<p><strong>Client</strong>  </p>
+<ul>
+<li>包含访问HBase的接口，并维护cache来加快对HBase的访问，比如region的位置信息</li>
+</ul>
+<p><strong>其中HMaster节点用于：</strong>  </p>
+<ul>
+<li>管理HRegionServer，实现其负载均衡。  </li>
+<li>管理和分配HRegion，比如在HRegion split时分配新的HRegion；在HRegionServer退出时迁移其内的HRegion到其他HRegionServer上。  </li>
+<li>实现DDL操作（Data Definition Language，namespace和table的增删改，column familiy的增删改等）。  </li>
+<li>管理namespace和table的元数据（实际存储在HDFS上）。  </li>
+<li>权限控制（ACL）。  </li>
+</ul>
+<p><strong>HRegionServer节点用于：</strong>  </p>
+<ul>
+<li>存放和管理本地HRegion。  </li>
+<li>读写HDFS，管理Table中的数据。  </li>
+<li>Client直接通过HRegionServer读写数据（从HMaster中获取元数据，找到RowKey所在的HRegion/HRegionServer后）。  </li>
+</ul>
+<p><strong>ZooKeeper集群是协调系统用于：</strong>  </p>
+<ul>
+<li>存放整个 HBase集群的元数据以及集群的状态信息。  </li>
+<li>实现HMaster主从节点的failover。</li>
+</ul>
+<p>HBase Client通过RPC方式和HMaster、HRegionServer通信；一个HRegionServer可以存放1000个HRegion；底层Table数据存储于HDFS中，而HRegion所处理的数据尽量和数据所在的DataNode在一起，实现数据的本地化；数据本地化并不是总能实现，比如在HRegion移动(如因Split)时，需要等下一次Compact才能继续回到本地化。</p>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="http://hbase.apache.org/book.html" target="_blank" rel="external">http://hbase.apache.org/book.html</a><br><a href="http://blog.csdn.net/woshiwanxin102213/article/details/17584043" target="_blank" rel="external">http://blog.csdn.net/woshiwanxin102213/article/details/17584043</a>  </p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/02/1 Hbase原理、基本概念、基本架构/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2017/09/24/FX交易---数字敏感化/" class="archive-article-date">
-  	<time datetime="2017-09-24T13:01:13.555Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-24</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="../hadoop + hbase架构和源码分析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          hadoop + hbase架构和源码分析
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../09/24/FX交易---数字敏感化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数字敏感</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2017/09/24/FX交易---数字敏感化/">数字敏感</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2017/09/24/花开半夏/" class="archive-article-date">
-  	<time datetime="2017-09-24T11:04:35.055Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2017/09/24/花开半夏/">花开半夏</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2017/09/18/此消彼长/" class="archive-article-date">
-  	<time datetime="2017-09-18T14:34:49.275Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2017/09/18/此消彼长/">此消彼长    --- 敬 小狐狸</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2017/09/18/公司的精英文化/" class="archive-article-date">
-  	<time datetime="2017-09-18T14:14:40.063Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-18</time>
-</a>
-        </div>
-    	 
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com",
+  owner: 'tianyeshiye',
+  repo: 'tianyeshiye',
+  oauth: {
+    client_id: '300c77e95d7419b744b0',
+    client_secret: '7da4472958aa65213effbbb1e9512ca9db8bdbf5',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2017/09/18/公司的精英文化/">大公司的精英文化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="../../2017/09/15/混沌初开/" class="archive-article-date">
-  	<time datetime="2017-09-14T15:36:53.307Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2017/09/15/混沌初开/">混沌初开 --- 天道</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -372,8 +393,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
