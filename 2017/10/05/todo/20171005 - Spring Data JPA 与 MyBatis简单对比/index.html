@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>hadoop + hbase架构和源码分析 | 天道</title>
+  <title>1 Hbase原理、基本概念、基本架构 | 天道</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="混沌 Hbase原理、基本概念、基本架构 Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase  参考：h">
+  <meta name="description" content="混沌HBase架构及基本组件http://www.jianshu.com/p/3927c2b6acc0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hadoop + hbase架构和源码分析">
-<meta property="og:url" content="http://yoursite.com/2017/10/02/hadoop + hbase架构和源码分析/index.html">
+<meta property="og:title" content="1 Hbase原理、基本概念、基本架构">
+<meta property="og:url" content="http://yoursite.com/2017/10/05/todo/20171005 - Spring Data JPA 与 MyBatis简单对比/index.html">
 <meta property="og:site_name" content="天道">
-<meta property="og:description" content="混沌 Hbase原理、基本概念、基本架构 Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase  参考：h">
-<meta property="og:updated_time" content="2017-10-02T14:56:17.110Z">
+<meta property="og:description" content="混沌HBase架构及基本组件http://www.jianshu.com/p/3927c2b6acc0">
+<meta property="og:updated_time" content="2017-10-04T15:56:13.229Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hadoop + hbase架构和源码分析">
-<meta name="twitter:description" content="混沌 Hbase原理、基本概念、基本架构 Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase Hbase  参考：h">
+<meta name="twitter:title" content="1 Hbase原理、基本概念、基本架构">
+<meta name="twitter:description" content="混沌HBase架构及基本组件http://www.jianshu.com/p/3927c2b6acc0">
   
     <link rel="alternative" href="/atom.xml" title="天道" type="application/atom+xml">
   
@@ -56,9 +56,9 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="../../../../index.html">主页</a></li>
+				<li><a href="../../../../../index.html">主页</a></li>
 	        
-				<li><a href="../../../../tags/随笔/">随笔</a></li>
+				<li><a href="../../../../../tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -82,7 +82,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/tianyeshiye" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weixin" target="_blank" href="../../../../tianyeshiye" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="weixin" target="_blank" href="../../../../../tianyeshiye" title="weixin"><i class="icon-weixin"></i></a>
 		        
 					<a class="mail" target="_blank" href="mailto:tianyeshiye@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -121,7 +121,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/tianyeshiye" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weixin" target="_blank" href="../../../../tianyeshiye" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="weixin" target="_blank" href="../../../../../tianyeshiye" title="weixin"><i class="icon-weixin"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:tianyeshiye@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -132,9 +132,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="../../../../index.html">主页</a></li>
+					<li style="width: 50%"><a href="../../../../../index.html">主页</a></li>
 		        
-					<li style="width: 50%"><a href="../../../../tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="../../../../../tags/随笔/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -149,60 +149,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hadoop + hbase架构和源码分析" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-todo/20171005 - Spring Data JPA 与 MyBatis简单对比" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hadoop + hbase架构和源码分析
+      1 Hbase原理、基本概念、基本架构
     </h1>
   
 
         
         <a href="" class="archive-article-date">
-  	<time datetime="2017-10-02T14:49:51.056Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-02</time>
+  	<time datetime="2017-10-04T15:55:06.148Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="混沌"><a href="#混沌" class="headerlink" title="混沌"></a>混沌</h2><ol>
-<li>Hbase原理、基本概念、基本架构</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-<li>Hbase</li>
-</ol>
-<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="http://hbase.apache.org/book.html" target="_blank" rel="external">http://hbase.apache.org/book.html</a> </p>
-<p><a href="http://blog.csdn.net/lizhitao/article/details/52499668" target="_blank" rel="external">http://blog.csdn.net/lizhitao/article/details/52499668</a></p>
+        <h2 id="混沌"><a href="#混沌" class="headerlink" title="混沌"></a>混沌</h2><h1 id="HBase架构及基本组件"><a href="#HBase架构及基本组件" class="headerlink" title="HBase架构及基本组件"></a>HBase架构及基本组件</h1><p><a href="http://www.jianshu.com/p/3927c2b6acc0" target="_blank" rel="external">http://www.jianshu.com/p/3927c2b6acc0</a></p>
 
       
 
@@ -282,7 +249,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/02/hadoop + hbase架构和源码分析/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/05/todo/20171005 - Spring Data JPA 与 MyBatis简单对比/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,7 +263,7 @@
   
 <nav id="article-nav">
   
-    <a href="../../05/todo/20171005 - Spring Data JPA 与 MyBatis简单对比/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../20171006 - 领域模型与关系模型 ER模型与关系模型/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -306,8 +273,8 @@
     </a>
   
   
-    <a href="../1 Hbase原理、基本概念、基本架构/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">1 Hbase原理、基本概念、基本架构</div>
+    <a href="../../../02/hadoop + hbase架构和源码分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hadoop + hbase架构和源码分析</div>
       <i class="icon-circle-right"></i>
     </a>
   
