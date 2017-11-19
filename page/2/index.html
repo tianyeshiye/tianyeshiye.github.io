@@ -147,6 +147,112 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-1 Hbase原理、基本概念、基本架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2017/10/02/1 Hbase原理、基本概念、基本架构/">1 Hbase原理、基本概念、基本架构</a>
+    </h1>
+  
+
+        
+        <a href="../../2017/10/02/1 Hbase原理、基本概念、基本架构/" class="archive-article-date">
+  	<time datetime="2017-10-02T14:13:02.001Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="混沌"><a href="#混沌" class="headerlink" title="混沌"></a>混沌</h2><h1 id="HBase架构及基本组件"><a href="#HBase架构及基本组件" class="headerlink" title="HBase架构及基本组件"></a>HBase架构及基本组件</h1><p>HBase采用Master/Slave架构搭建集群，<br>它隶属于Hadoop生态系统，<br>由一下类型节点组成：HMaster节点、HRegionServer节点、ZooKeeper集群，<br>而在底层，它将数据存储于HDFS中，<br>因而涉及到HDFS的NameNode、DataNode等，总体结构如下：  </p>
+<p><img src="/images/hbase/HBase1.jpg" alt=""></p>
+<p><strong>Hbase基本概念</strong>  </p>
+<ul>
+<li>RowKey：是Byte array，是表中每条记录的“主键”，方便快速查找，Rowkey的设计非常重要。  </li>
+<li>Column Family：列族，拥有一个名称(string)，包含一个或者多个相关列  </li>
+<li>Column：属于某一个columnfamily、familyName:columnName，每条记录可动态添加  </li>
+<li>Version Number：类型为Long，默认值是系统时间戳，可由用户自定义  </li>
+<li>Value(Cell)：Byte array  </li>
+</ul>
+<p><strong>Hbase物理模型</strong><br>每个column family存储在HDFS上的一个单独文件中，空值不会被保存。<br>Key 和 Version number在每个 column family中均有一份；<br>HBase 为每个值维护了多级索引，即：<key, column="" family,="" name,="" timestamp=""><br>物理存储:  </key,></p>
+<ul>
+<li>Table中所有行都按照row key的字典序排列；  </li>
+<li>Table在行的方向上分割为多个Region；  </li>
+<li>Region按大小分割的，每个表开始只有一个region，随着数据增多，region不断增大，当增大到一个阀值的时候，region就会等分会两个新的region，之后会有越来越多的region；  </li>
+<li>Region是Hbase中分布式存储和负载均衡的最小单元，不同Region分布到不同RegionServer上。  </li>
+<li><strong>Region虽然是分布式存储的最小单元，但并不是存储的最小单元。Region由一个或者多个Store组成，每个store保存一个columns family；每个Strore又由一个memStore和0至多个StoreFile组成，StoreFile包含HFile；memStore存储在内存中，StoreFile存储在HDFS上。</strong>  </li>
+</ul>
+<p><img src="/images/hbase/HBase2.jpg" alt=""><br><img src="/images/hbase/HBase3.jpg" alt=""></p>
+<p><strong>Client</strong>  </p>
+<ul>
+<li>包含访问HBase的接口，并维护cache来加快对HBase的访问，比如region的位置信息</li>
+</ul>
+<p><strong>其中HMaster节点用于：</strong>  </p>
+<ul>
+<li>管理HRegionServer，实现其负载均衡。  </li>
+<li>管理和分配HRegion，比如在HRegion split时分配新的HRegion；在HRegionServer退出时迁移其内的HRegion到其他HRegionServer上。  </li>
+<li>实现DDL操作（Data Definition Language，namespace和table的增删改，column familiy的增删改等）。  </li>
+<li>管理namespace和table的元数据（实际存储在HDFS上）。  </li>
+<li>权限控制（ACL）。  </li>
+</ul>
+<p><strong>HRegionServer节点用于：</strong>  </p>
+<ul>
+<li>存放和管理本地HRegion。  </li>
+<li>读写HDFS，管理Table中的数据。  </li>
+<li>Client直接通过HRegionServer读写数据（从HMaster中获取元数据，找到RowKey所在的HRegion/HRegionServer后）。  </li>
+</ul>
+<p><strong>ZooKeeper集群是协调系统用于：</strong>  </p>
+<ul>
+<li>存放整个 HBase集群的元数据以及集群的状态信息。  </li>
+<li>实现HMaster主从节点的failover。</li>
+</ul>
+<p>HBase Client通过RPC方式和HMaster、HRegionServer通信；一个HRegionServer可以存放1000个HRegion；底层Table数据存储于HDFS中，而HRegion所处理的数据尽量和数据所在的DataNode在一起，实现数据的本地化；数据本地化并不是总能实现，比如在HRegion移动(如因Split)时，需要等下一次Compact才能继续回到本地化。</p>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="http://hbase.apache.org/book.html" target="_blank" rel="external">http://hbase.apache.org/book.html</a><br><a href="http://blog.csdn.net/woshiwanxin102213/article/details/17584043" target="_blank" rel="external">http://blog.csdn.net/woshiwanxin102213/article/details/17584043</a>  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2017/10/02/1 Hbase原理、基本概念、基本架构/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-FX交易---数字敏感化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
